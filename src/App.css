@@ -36,3 +36,51 @@
     transform: rotate(360deg);
   }
 }
+
+h1 {
+  color: #ff502c;
+}
+.dog-image {
+  position: relative;
+  display: inline-block;
+  padding-top: 1em;
+}
+.dog-image img {
+  display: block;
+}
+.dog-image p {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translate(0, -50%);
+  text-align: center;
+  color: #8093ff;
+  text-shadow: 0 0 15px;
+  font-size: 45px;
+}
+
+.dog-image span:nth-of-type(2n) {
+  color: #ff502c;
+}
+
+.dog-image span:nth-of-type(3n) {
+  color: #ff9472;
+}
+.dog-image span:nth-of-type(4n) {
+  color: #ff91ff;
+}
+
+.button {
+  color: #8093ff;
+  border-style: solid;
+  border-color: #8093ff;
+  background-color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  border-radius: 999px;
+  margin: 0 auto;
+}
