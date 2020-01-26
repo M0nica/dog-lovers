@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -11,9 +11,9 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -22,7 +22,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 .App-link {
   color: #61dafb;
@@ -44,16 +44,15 @@ h1 {
   position: relative;
   display: inline-block;
   padding-top: 1em;
+  width: 0;
 }
 .dog-image img {
   display: block;
 }
 .dog-image p {
   position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  transform: translate(0, -50%);
+
+  transform: translate(20%, -150%);
   text-align: center;
   color: #8093ff;
   text-shadow: 0 0 15px;
@@ -83,4 +82,27 @@ h1 {
   font-size: 16px;
   border-radius: 999px;
   margin: 0 auto;
+  margin-top: 1em;
+}
+
+.dropdown {
+  margin: 0 auto;
+}
+
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 50%;
+  flex: 1 1 0px;
+}
+@media screen and (max-width: 700px) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+  }
+}
+
+.selectionPanel {
+  width: 0;
 }
