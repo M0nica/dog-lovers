@@ -10,7 +10,7 @@ export function getBreed(url) {
   return breed;
 }
 
-class DogAPICall extends Component {
+export class DogAPICall extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,7 +30,7 @@ class DogAPICall extends Component {
             loading: false,
             imgUrl: json.message
           },
-          () => console.log("updating dog image...")
+          () => {} // console.log("updating dog image...")
         )
       )
       .catch(err => console.log(err));
@@ -48,7 +48,7 @@ class DogAPICall extends Component {
             })
           ),
         this.setState({ breeds: formattedBreeds }, () => {
-          console.log("setting breeds...");
+          // console.log("setting breeds...");
         })
       )
       .catch(err => console.log(err));
@@ -90,13 +90,15 @@ class DogAPICall extends Component {
     return (
       <>
         <div className="container">
-          <div className="selection">
+          <div className="selectionPanel">
             <p>Select a Dog Breed</p>
+
             <Select
               options={breeds}
               onChange={this.handleBreedSelection}
               className="dropdown"
             />
+
             <button onClick={this.handleClick()} className="button">
               Say "Hi!" to another{" "}
               {selectedOption.value ? selectedOption.value : "dog"}{" "}
@@ -106,12 +108,12 @@ class DogAPICall extends Component {
             </button>
           </div>
           <div className="dog-image">
-            {console.log(imgUrl)}{" "}
             {imgUrl && <img src={imgUrl} alt={`a ${getBreed(imgUrl)}`} />}
             <p>
               <span>W</span>
               <span>e</span> {""}
               <span> ❤ </span> {""}
+              <br />
               <span>o</span>
               <span>u</span>
               <span>r</span>
@@ -134,7 +136,9 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Dogapooloza</h1>
+        By <a href="https://github.com/M0nica/">Monica Powell</a>
         <DogAPICall />
+        <p></p>
       </div>
     );
   }

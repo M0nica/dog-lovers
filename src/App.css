@@ -1,62 +1,44 @@
-/* .App {
+.App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App a {
+  text-decoration: none;
+  color: #8093ff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-} */
-
-/* .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App a:hover {
+  text-decoration: underline;
 }
 
 h1 {
+  width: 100%;
+  margin: 0 auto;
   color: #ff502c;
 }
+
 .dog-image {
   position: relative;
   display: inline-block;
   padding-top: 1em;
-  width: 0;
+  width: 100%;
 }
 .dog-image img {
+  object-fit: cover;
   display: block;
+  margin: 0 auto;
+  max-width: 100%;
 }
+
 .dog-image p {
   position: absolute;
-
-  transform: translate(20%, -150%);
-  text-align: center;
+  top: 100px;
+  left: 0;
+  width: 100%;
   color: #8093ff;
   text-shadow: 0 0 15px;
-  font-size: 45px;
+  font-size: 4em;
+  margin: 0 auto;
 }
 
 .dog-image span:nth-of-type(2n) {
@@ -85,24 +67,25 @@ h1 {
   margin-top: 1em;
 }
 
+.button:hover {
+  color: white;
+  background-color: #8093ff;
+}
+
 .dropdown {
   margin: 0 auto;
+  margin: 1em;
 }
 
 .container {
   display: flex;
-  justify-content: space-evenly;
   max-width: 50%;
-  flex: 1 1 0px;
-}
-@media screen and (max-width: 700px) {
-  .container {
-    flex-direction: column;
-    justify-content: center;
-    width: 90%;
-  }
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 100%;
 }
 
 .selectionPanel {
-  width: 0;
+  align-items: center;
 }
