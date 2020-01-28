@@ -1,35 +1,25 @@
-![screenshot of application ](public/app-screenshot.png)
 
-## Future things to do:
+# Dogapooloza App
+<img src="public/app-screenshot.png" width="200" alt="screenshot of application">
+                                                      
+## Current Functionality
+- Displays a random photo of a dog on initial load
+- Allows users to select a specific dog breed they’d like to see from a dropdown menu 
+- Allows users to click a button in order to get a new photo.
+- Overlays photo with text
 
-- Increase test coverage
-  - i.e., mock `fetch`
-- Improve styling and make it more mobile-responsive
-- Split functionality across files
-- Implement more robust and resilient way of extracting breed of a photo from the url in order to approve aria-label text
-- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Future Functionality to Implement 
+- [ ] Increase test coverage
+	- [ ] i.e., mock fetch
+- [ ] Improve styling and make it more mobile-responsive
+- [ ] Modularize code more into more composable files 
+- [ ] Implement more robust and resilient way of extracting breed of a photo from the url in order to approve aria-label text
+- [ ] Add server-side rendering 
 
-## Available Scripts
+## Instructions for Developing 
+1. Install dependencies in the root with `yarn` .
+2. Run development version of app locally at http://localhost:3000 with `yarn start`
+3. Run `yarn test` to run unit tests 
 
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Instructions for Deploying 
+- Run `yarn build` in order to create a production version of the application in the `/build` directory.
