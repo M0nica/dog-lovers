@@ -10,14 +10,13 @@ export function getBreed(url) {
   return breed;
 }
 
-export class DogAPICall extends Component {
+export class DogPhotoDisplay extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: false,
       imgUrl: "",
       breeds: [],
-      selectedOption: { value: "", label: "" }
+      selectedBreed: { value: "", label: "" }
     };
   }
 
@@ -27,48 +26,44 @@ export class DogAPICall extends Component {
       .then(json =>
         this.setState(
           {
-            loading: false,
             imgUrl: json.message
           },
-          () => {} // console.log("updating dog image...")
+          () => {}
         )
       )
       .catch(err => console.log(err));
 
-    const formattedBreeds = [];
+    const breedData = [];
     fetch("https://dog.ceo/api/breeds/list/all")
       .then(response => response.json())
       .then(json => Object.keys(json.message))
       .then(
         breeds =>
           breeds.map(breed =>
-            formattedBreeds.push({
+            breedData.push({
               value: breed,
               label: breed
             })
           ),
-        this.setState({ breeds: formattedBreeds }, () => {
-          // console.log("setting breeds...");
-        })
+        this.setState({ breeds: breedData }, () => {})
       )
       .catch(err => console.log(err));
   }
 
-  handleBreedSelection = selectedOption => {
-    const { value } = selectedOption;
+  handleBreedSelection = selectedBreed => {
+    const { value } = selectedBreed;
     fetch(`https://dog.ceo/api/breed/${value}/images/random`)
       .then(response => response.json())
       .then(json =>
-        this.setState({ selectedOption, loading: false, imgUrl: json.message })
+        this.setState({ selectedBreed: selectedBreed, imgUrl: json.message })
       )
       .catch(err => console.log(err));
   };
 
   handleClick = api => e => {
-    this.setState({ loading: true });
     e.preventDefault();
 
-    const { value } = this.state.selectedOption;
+    const { value } = this.state.selectedBreed;
     const url =
       value === ""
         ? "https://dog.ceo/api/breeds/image/random"
@@ -78,14 +73,14 @@ export class DogAPICall extends Component {
       .then(response => response.json())
       .then(json => {
         if (json.status === "success") {
-          this.setState({ loading: false, imgUrl: json.message });
+          this.setState({ imgUrl: json.message });
         }
       })
       .catch(err => console.log(err));
   };
 
   render() {
-    const { imgUrl, breeds, selectedOption } = this.state;
+    const { imgUrl, breeds, selectedBreed } = this.state;
 
     return (
       <>
@@ -101,7 +96,7 @@ export class DogAPICall extends Component {
 
             <button onClick={this.handleClick()} className="button">
               Say "Hi!" to another{" "}
-              {selectedOption.value ? selectedOption.value : "dog"}{" "}
+              {selectedBreed.value ? selectedBreed.value : "dog"}{" "}
               <span role="img" aria-label="dog-emoji">
                 🐶
               </span>
@@ -137,7 +132,7 @@ class App extends Component {
       <div className="App">
         <h1>Dogapooloza</h1>
         By <a href="https://github.com/M0nica/">Monica Powell</a>
-        <DogAPICall />
+        <DogPhotoDisplay />
         <p></p>
       </div>
     );
